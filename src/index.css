@@ -5,6 +5,7 @@
 .container {
     position: relative;
     width: 100vw;
+    max-width: 100vw;
     background-color: #f9e5d8;
     overflow: hidden;
 }
