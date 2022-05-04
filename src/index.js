@@ -12,3 +12,6 @@ if(document.getElementById('gift')) {
         }, 5000);
     })
 }
+
+const container = document.querySelector('.container')
+container.style.setProperty('height', `${window.innerHeight}px`)
