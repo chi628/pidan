@@ -1,18 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
+* {
+    margin: 0;
+    padding: 0;
+  }
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f9e5d8;
+    overflow: hidden;
+}
 .gift-box {
-    @apply absolute bottom-0 left-0 right-0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .gift-cover {
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 50%);
     transition: all .6s ease-in;
-
-    @apply w-[90%] h-[50px] mx-auto;
-    @apply bg-[#006d77];
+    width: 90%;
+    max-width: 350px;
+    height: 50px;
+    margin: 0 auto;
+    background-color: #006d77;
 }
 
 .open > .gift-cover {
@@ -24,7 +35,7 @@
 }
 
 .open > .gift-main::after {
-    @apply bg-opacity-0;
+    background-color: rgba(0,0,0,0);
 }
 
 
@@ -34,48 +45,60 @@
 
 .gift-main {
     transition: all .8s ease;
-
-    @apply relative;
-    @apply w-[80%] h-[250px]  mx-auto;
-    @apply bg-[#006d77];
+    position: relative;
+    width: 80%;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;
+    background-color: #006d77;
 }
 
 .gift-main::after {
     content: '';
-    @apply absolute top-0;
-    @apply w-full h-[15px];
-    @apply bg-black bg-opacity-25;
-    @apply z-10;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 15px;
+    background-color: rgba(0,0,0, 0.25);
+    z-index: 10;
 }
 
 .coloumn-ribbon {
     box-shadow: 4px 0 8px 0 rgb(0 0 0 / 20%);
     left: calc(50% - 25px);
-
-    @apply absolute bottom-0 top-0;
-    @apply w-[50px];
-    @apply bg-[#edf6f9];
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    width: 50px;
+    background-color: #edf6f9;
 }
 
 .row-ribbon {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-
-    @apply absolute left-0 right-0 bottom-[100px];
-    @apply h-[50px];
-    @apply bg-[#edf6f9];
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+    height: 50px;
+    background-color: #edf6f9;
 }
 
 .bowties {
-    @apply absolute left-0 -top-[50px];
-    @apply w-full h-[50px];
-    @apply flex justify-center items-center;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bowtie {
     box-shadow: inset 0 0 0 15px #edf6f9;
-
-    @apply w-[40px] h-[40px];
-    @apply rounded-full;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .bowtie.left {
@@ -101,32 +124,46 @@
     }
 }
 .balloons {
-    @apply absolute -bottom-[500px];
-    @apply hidden;
+    position: absolute;
+    bottom: -500px;
+    display: none;
 }
 .balloons.show {
-    @apply inline-flex flex-wrap;
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 .balloon {
     box-shadow: inset -10px -10px 0 rgb(0 0 0 / 7%);
     transition:transform 0.5s ease;
     animation:balloons 1.5s ease-in-out infinite;
-
-    @apply relative w-[120px] h-[145px];
-    @apply rounded-[80%] bg-red-300;
+    position: relative;
+    width: 120px;
+    height: 145px;
+    border-radius: 80%;
+    background-color: rgb(252 165 165);
 }
 .balloon::before{
     content: '▲';
-    @apply text-red-300 text-center text-xl;
-    @apply absolute -bottom-[18px] left-0 right-0;
-    @apply block;
+    color: rgb(252 165 165);
+    text-align: center;
+    font-size: 20px;
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    right: 0;
+    display: block;
 }
 .balloon::after {
     content: "";
 
-    @apply inline-block w-[1px] h-[250px] mx-auto;
-    @apply absolute top-[155px] left-[60px];
-    @apply bg-[#d94a8c] bg-opacity-20;
+    display: inline-block;
+    width: 1px;
+    height: 250px;
+    margin: 0 auto;
+    position: absolute;
+    top: 155px;
+    left: 60px;
+    background-color: rgba(217 74 140, 0.2);
 }
 
 .balloon:nth-child(1) {
@@ -176,12 +213,30 @@
 }
 
 .ans {
-    @apply font-bold text-3xl text-center text-[#ef476f];
-    @apply absolute left-0 right-0 top-0 bottom-0;
-    @apply hidden;
     animation: ans 1s ease-in;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color: #ef476f;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
 }
 
 .ans.show {
-    @apply flex flex-col items-center justify-center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hint {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #774936;
+    margin-top: 50px;
 }
